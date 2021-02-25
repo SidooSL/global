@@ -23,8 +23,8 @@
 	url = git@github.com:OCA/bank-payment.git
 	branch = 13.0
 
-
 [submodule "OCA/account-invoicing"]
 	path = OCA/account-invoicing
 	url = git@github.com:OCA/account-invoicing.git
 	branch = 13.0
+
