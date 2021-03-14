@@ -20,5 +20,12 @@
           </dl>
         </template>
 -->
+
+            <template id="global_estilos" name="Estilos de Odoo Global" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+                /* hola */
+                <link rel="stylesheet" href="/global/static/style/theme.css"/>
+            </xpath>
+        </template>
     </data>
 </odoo>
