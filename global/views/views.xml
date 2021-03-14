@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+
+
+<record id="view_res_partner_filter" model="ir.ui.view">
+           <field name="name">res.partner.select.inherit.global</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//search" position="inside">
+                        <searchpanel>
+                           <field name="category_id"  select="multi" string="Categorías" icon="fa-users"/>
+                       </searchpanel>
+                    </xpath>
+                </data>
+
+            </field>
+</record>
+
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="global.list">
+      <field name="name">global list</field>
+      <field name="model">global.global</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="global.action_window">
+      <field name="name">global window</field>
+      <field name="res_model">global.global</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="global.action_server">
+      <field name="name">global server</field>
+      <field name="model_id" ref="model_global_global"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="global" id="global.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="global.menu_1" parent="global.menu_root"/>
+    <menuitem name="Menu 2" id="global.menu_2" parent="global.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="global.menu_1_list" parent="global.menu_1"
+              action="global.action_window"/>
+    <menuitem name="Server to list" id="global" parent="global.menu_2"
+              action="global.action_server"/>
+-->
+  </data>
+</odoo>
