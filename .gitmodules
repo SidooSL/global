@@ -38,3 +38,6 @@
 	path = OCA/queue
 	url = git@github.com:OCA/queue.git
 	branch = 13.0
+[submodule "OCA/partner-contact"]
+	path = OCA/partner-contact
+	url = git@github.com:OCA/partner-contact.git
