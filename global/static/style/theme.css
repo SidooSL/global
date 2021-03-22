@@ -47,14 +47,14 @@ body {
 
 .btn-primary {
    color: #fff;
-   background-color: #5EC269;
-   border-color: #5EC269;
+   background-color: #346271;
+   border-color: #346271;
 }
 
 .btn-primary:hover {
    color: #fff;
-   background-color: #41ac4d;
-   border-color: #41ac4d;
+   background-color: #274955;
+   border-color: #274955;
 }
 
 .btn-secondary {
@@ -74,7 +74,7 @@ body {
 }
 
 .btn-link {
-   color: #5EC269;
+   color: #334858;
 }
 
 .o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled {
@@ -166,14 +166,14 @@ oe_highlight {
 }
 
 a {
-   color: #5EC269;
+   color: #3e6371;
    text-decoration: none;
    background-color: transparent;
    -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-   color: #41ac4d;
+   color: #29434b;
    text-decoration: none;
 }
 
