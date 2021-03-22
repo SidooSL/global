@@ -21,11 +21,32 @@
         </template>
 -->
 
-            <template id="global_estilos" name="Estilos de Odoo Global" inherit_id="website.assets_frontend">
-            <xpath expr="." position="inside">
-                /* hola */
-                <link rel="stylesheet" href="/global/static/style/theme.css"/>
+<!--<template id="assets_frontend" name="account assets" inherit_id="web.assets_frontend">-->
+<!--        <xpath expr="." position="inside">-->
+<!--            <script type="text/javascript" src="/account/static/src/js/account_portal_sidebar.js"></script>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+
+        <template id="global_estilos" inherit_id="web.assets_backend">
+            <xpath expr="//link[last()]" position="after">
+                <link rel="stylesheet"  type="text/css"  href="/global/static/style/theme.css"/>
             </xpath>
         </template>
+<!--        -->
+<!--        <template id="global_estilos" name="Estilos de Odoo Global" inherit_id="web.assets_frontend">-->
+<!--           <xpath expr="." position="inside">-->
+<!--                /* hola */-->
+<!--                <link rel="stylesheet" href="/global/static/style/theme.css"/>-->
+<!--            </xpath>-->
+<!--        </template>-->
+
+
+<!--        <template id="my_module_frontend" name="my_module assets" inherit_id="website_sale.assets_frontend">-->
+<!--            <xpath expr="//link[@rel='stylesheet']" position="after">-->
+<!--                <link rel="stylesheet" href="/global/static/style/theme.css"/>-->
+<!--            </xpath>-->
+<!--        </template>-->
+
     </data>
 </odoo>

@@ -41,3 +41,9 @@
 [submodule "OCA/partner-contact"]
 	path = OCA/partner-contact
 	url = git@github.com:OCA/partner-contact.git
+[submodule "OCA/product-attribute"]
+	path = OCA/product-attribute
+	url = git@github.com:OCA/product-attribute.git
+[submodule "OCA/community-data-files"]
+	path = OCA/community-data-files
+	url = git@github.com:OCA/community-data-files.git
