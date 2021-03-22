@@ -310,9 +310,7 @@ input[type="text"], input[type="password"], input[type="number"], textarea, sele
    overflow: visible !important;
 }
 
-.urdecon_lista_facturas [data-name="get_link_descarga"] {
-   width: 85px !important;
-}
+
 
 .openerp .oe_form_sheetbg {
    padding: 16px 0;
@@ -321,11 +319,6 @@ input[type="text"], input[type="password"], input[type="number"], textarea, sele
 
 .openerp .oe_form_sheet_width_wider {
    max-width: 1300px;
-}
-
-.lista_albaranes {
-   max-height: 800px !important;
-   overflow: scroll;
 }
 
 /*santi*/
