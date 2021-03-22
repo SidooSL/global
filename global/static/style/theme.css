@@ -209,7 +209,7 @@ input[type="text"], input[type="password"], input[type="number"], textarea, sele
 }
 
 .o_required_modifier.o_input, .o_required_modifier .o_input {
-   background-color: #1aff7a !important;
+   background-color: #c9e6f1 !important;
 }
 
 .input-group-text {
