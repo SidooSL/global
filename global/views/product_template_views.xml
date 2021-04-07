@@ -10,6 +10,13 @@
                     <xpath expr="//group[@name='group_general']" position="inside">
                         <field name="marca" string="Marca"/>
                     </xpath>
+
+
+                    <xpath expr="//field[@name='website_style_ids']" position="after">
+                        <field name="website_description" type="html" string="Descripción Web"/>
+                        <field name="website_long_description" type="html" string="Descripción Web Larga"/>
+                    </xpath>
+
                 </data>
             </field>
         </record>

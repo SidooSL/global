@@ -3,11 +3,11 @@
     'name': "global",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Personalizaciones para Global Proteccion
+        """,
 
     'description': """
-        Long description of module's purpose
+        Modulo de personalizaciones para Global Proteccion
     """,
 
     'author': "My Company",
@@ -21,7 +21,7 @@
 
     'application': True,
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website'],
+    'depends': ['base', 'website', 'website_sale'],
 
     # always loaded
     'data': [
