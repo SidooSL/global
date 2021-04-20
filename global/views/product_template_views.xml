@@ -9,6 +9,7 @@
                 <data>
                     <xpath expr="//group[@name='group_general']" position="inside">
                         <field name="marca" string="Marca"/>
+                        <field name="publicar_web"/>
                     </xpath>
 
 

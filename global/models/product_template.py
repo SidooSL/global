@@ -7,3 +7,4 @@ class ProductTemplate(models.Model):
 
     marca = fields.Char(required=False, string="Marca")
     website_long_description = fields.Html(required=False, string="Descripción larga")
+    publicar_web = fields.Boolean(string="Publicar en web")
