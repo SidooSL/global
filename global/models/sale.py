@@ -1,9 +1,18 @@
 from odoo import models, fields
 
 
-class ResPartner(models.Model):
-    _name = 'res.partner'
-    _inherit = 'res.partner'
+class SaleOrder(models.Model):
+    _inherit = 'sale.order'
 
-    cod_factusol = fields.Char(required=False)
-    publicar_web = fields.Boolean(string="Publicar en web")
+
+    partner_invoice_id = fields.Many2one(
+        'res.partner', string='Invoice Address',
+        readonly=True, required=True,
+        states={'draft': [('readonly', False)], 'sent': [('readonly', False)], 'sale': [('readonly', False)]},
+        domain="['|', ('id', '=', partner_id), ('parent_id', '=', partner_id),  '|', ('company_id', '=', False), ('company_id', '=', company_id)]", )
+    partner_shipping_id = fields.Many2one(
+        'res.partner', string='Delivery Address', readonly=True, required=True,
+        states={'draft': [('readonly', False)], 'sent': [('readonly', False)], 'sale': [('readonly', False)]},
+        domain="['|', ('id', '=', partner_id), ('parent_id', '=', partner_id),  '|', ('company_id', '=', False), ('company_id', '=', company_id)]", )
+
+
