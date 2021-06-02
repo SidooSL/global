@@ -58,3 +58,6 @@
 	path = OCA/connector
 	url = https://github.com/OCA/connector
 	branch = 13.0
+[submodule "OCA/web"]
+	path = OCA/web
+	url = https://github.com/OCA/web
