@@ -17,13 +17,13 @@ class MailThread(models.AbstractModel):
         else:
             return super(MailThread, self).message_subscribe(partner_ids, channel_ids, subtype_ids)
 
-    def _message_auto_subscribe(self, updated_fields):
+    def _message_auto_subscribe_followers(self, updated_values, default_subtype_ids):
         ir_config = self.env['ir.config_parameter']
         app_stop_subscribe = bool(strtobool(ir_config.sudo().get_param('app_stop_subscribe')))
         if app_stop_subscribe:
             return
         else:
-            return super(MailThread, self)._message_auto_subscribe(updated_fields)
+            return super(MailThread, self)._message_auto_subscribe(updated_values, default_subtype_ids)
 
     def _message_auto_subscribe_notify(self, partner_ids, template):
         ir_config = self.env['ir.config_parameter']
