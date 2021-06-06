@@ -18,7 +18,7 @@ class SaleOrder(models.Model):
 
     # def action_quotation_sent(self):
     #     """
-    #     Se modifica la función para evitar que se autosubscriban los partners
+    #     Se modifica la función para evitar que se autosubscriban los partncers
     #     """
     #
     #     if self.filtered(lambda so: so.state != 'draft'):
