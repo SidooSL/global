@@ -7,7 +7,7 @@
         """,
 
     'description': """
-        Modulo de personalizaciones para Global Proteccion
+        Modulo de personalizaciones para Global Proteccion.
     """,
 
     'author': "My Company",
