@@ -64,3 +64,6 @@
 [submodule "OCA/stock-logistics-workflow"]
 	path = OCA/stock-logistics-workflow
 	url = https://github.com/OCA/stock-logistics-workflow
+[submodule "OCA/account-invoice-reporting"]
+	path = OCA/account-invoice-reporting
+	url = https://github.com/OCA/account-invoice-reporting.git
