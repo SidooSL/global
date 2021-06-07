@@ -61,3 +61,6 @@
 [submodule "OCA/web"]
 	path = OCA/web
 	url = https://github.com/OCA/web
+[submodule "OCA/stock-logistics-workflow"]
+	path = OCA/stock-logistics-workflow
+	url = https://github.com/OCA/stock-logistics-workflow
