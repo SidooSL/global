@@ -23,7 +23,7 @@ class MailThread2(models.AbstractModel):
         if app_stop_subscribe:
             return
         else:
-            return super(MailThread2, self)._message_auto_subscribe(updated_values, default_subtype_ids)
+            return super(MailThread2, self)._message_auto_subscribe_followers(updated_values, default_subtype_ids)
 
     def _message_auto_subscribe_notify(self, partner_ids, template):
         ir_config = self.env['ir.config_parameter']
