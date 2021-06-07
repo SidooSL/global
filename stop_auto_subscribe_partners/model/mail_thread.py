@@ -6,7 +6,7 @@ from odoo import api, fields, models, _
 from distutils.util import strtobool 
 
 
-class MailThread(models.AbstractModel):
+class MailThread2(models.AbstractModel):
     _inherit = "mail.thread"
 
     def message_subscribe(self, partner_ids=None, channel_ids=None, subtype_ids=None):
@@ -15,7 +15,7 @@ class MailThread(models.AbstractModel):
         if app_stop_subscribe:
             return
         else:
-            return super(MailThread, self).message_subscribe(partner_ids, channel_ids, subtype_ids)
+            return super(MailThread2, self).message_subscribe(partner_ids, channel_ids, subtype_ids)
 
     def _message_auto_subscribe_followers(self, updated_values, default_subtype_ids):
         ir_config = self.env['ir.config_parameter']
@@ -23,7 +23,7 @@ class MailThread(models.AbstractModel):
         if app_stop_subscribe:
             return
         else:
-            return super(MailThread, self)._message_auto_subscribe(updated_values, default_subtype_ids)
+            return super(MailThread2, self)._message_auto_subscribe(updated_values, default_subtype_ids)
 
     def _message_auto_subscribe_notify(self, partner_ids, template):
         ir_config = self.env['ir.config_parameter']
@@ -31,4 +31,4 @@ class MailThread(models.AbstractModel):
         if app_stop_subscribe:
             return
         else:
-            return super(MailThread, self)._message_auto_subscribe_notify(partner_ids, template)
+            return super(MailThread2, self)._message_auto_subscribe_notify(partner_ids, template)
