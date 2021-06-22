@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+        <record id="view_partner_form" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.global</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='category_id']" position="after">
+                            <field name="publicar_web" />
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="view_res_partner_filter" model="ir.ui.view">
+            <field name="name">res.partner.select.inherit.global</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//search" position="inside">
+                        <searchpanel>
+                            <field name="category_id" select="multi" string="Categorías" icon="fa-users"/>
+                        </searchpanel>
+                    </xpath>
+                </data>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

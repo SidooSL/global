@@ -7,7 +7,7 @@
         """,
 
     'description': """
-        Modulo de personalizaciones para Global Proteccion
+        Modulo de personalizaciones para Global Proteccion.
     """,
 
     'author': "My Company",
@@ -21,14 +21,15 @@
 
     'application': True,
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website', 'website_sale'],
+    'depends': ['base', 'website', 'website_sale', 'purchase'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/product_template_views.xml'
+        'views/product_template_views.xml',
+        'views/res_partner_views.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

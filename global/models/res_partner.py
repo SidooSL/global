@@ -6,3 +6,4 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     cod_factusol = fields.Char(required=False)
+    publicar_web = fields.Boolean(string="Publicar en web")

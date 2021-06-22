@@ -41,9 +41,29 @@
 [submodule "OCA/partner-contact"]
 	path = OCA/partner-contact
 	url = git@github.com:OCA/partner-contact.git
+	branch = 13.0
 [submodule "OCA/product-attribute"]
 	path = OCA/product-attribute
 	url = git@github.com:OCA/product-attribute.git
+	branch = 13.0
 [submodule "OCA/community-data-files"]
 	path = OCA/community-data-files
 	url = git@github.com:OCA/community-data-files.git
+	branch = 13.0
+[submodule "OCA/edi"]
+	path = OCA/edi
+	url = https://github.com/OCA/edi.git
+	branch = 13.0
+[submodule "OCA/connector"]
+	path = OCA/connector
+	url = https://github.com/OCA/connector
+	branch = 13.0
+[submodule "OCA/web"]
+	path = OCA/web
+	url = https://github.com/OCA/web
+[submodule "OCA/stock-logistics-workflow"]
+	path = OCA/stock-logistics-workflow
+	url = https://github.com/OCA/stock-logistics-workflow
+[submodule "OCA/account-invoice-reporting"]
+	path = OCA/account-invoice-reporting
+	url = https://github.com/OCA/account-invoice-reporting.git
