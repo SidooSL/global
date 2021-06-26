@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:fdn=3:-->
+<odoo>
+    <data>
+
+        <template id="assets_backend" name="aspl_delivery_sign assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/aspl_delivery_sign_ee/static/src/js/delivery_sign.js"></script>
+                <script type="text/javascript" src="/aspl_delivery_sign_ee/static/src/js/fabric.min.js"></script>
+                <link rel="stylesheet" href="/aspl_delivery_sign_ee/static/src/css/backend.css" id="pos-stylesheet"/>
+            </xpath>
+        </template>
+
+        <template inherit_id="stock.report_picking" id="custom_report_picking">
+            <xpath expr="//div[@class='page']/p[2]" position="after">
+                <t t-if="o.signature">
+	                <div style="height: 90px;position: relative;">
+		                <div style="float: right;border-bottom: 1px solid #000;background: white;">
+		                    <img t-att-src="'data:image/png;base64,%s' % to_text(o.signature)" widget="image" style="height: 60px;"/>
+		                </div>
+		                <div style="position: absolute;right: 0;bottom: 0;text-align: center;width: 16%;">
+		                   Signature
+		                </div>
+	                </div>
+                </t>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
