@@ -73,3 +73,6 @@
 [submodule "OCA/account-payment"]
 	path = OCA/account-payment
 	url = https://github.com/OCA/account-payment.git
+[submodule "OCA/sale-reporting"]
+	path = OCA/sale-reporting
+	url = https://github.com/OCA/sale-reporting.git
