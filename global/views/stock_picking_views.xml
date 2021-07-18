@@ -8,7 +8,7 @@
                 <xpath expr="//notebook" position="inside">
                 <page name="firma" string="Firma recepción">
                     <group name='firmas' string="">
-                        <field name="firma_cliente" widget="signature" />
+                        <field name="firma_cliente" widget="signature"  />
                     </group>
                 </page>
                 </xpath>
