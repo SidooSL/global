@@ -7,6 +7,7 @@ from odoo import api, models, fields, _
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
+    receptor = fields.Char(string="Receptor Mercancía")
     firma_cliente = fields.Binary(string="Firma cliente")
 
     # sign_request_ids = fields.Many2many('sign.request', string='Firmas')
