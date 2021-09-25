@@ -49,7 +49,14 @@ class StockPicking(models.Model):
         email_template_id.send_mail(self.id, email_values=email_values, force_send=True)
         email_template_id.attachment_ids = [(3, data_id.id)]
 
-        return True
+        return {
+            'warning': {
+                'title': 'Email enviado',
+                'message': 'El correo se ha enviado al destinatario: %s' % (email_to,)
+            }
+        }
+
+
 
     # sign_request_ids = fields.Many2many('sign.request', string='Firmas')
     # sign_request_count = fields.Integer(compute='_compute_sign_request_count')
