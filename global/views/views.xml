@@ -44,6 +44,76 @@
             </record>
         -->
 
+
+
+        <record model="ir.ui.view" id="global.stock_picking_global_firma_tree">
+            <field name="name">Listado Albaranes PDA</field>
+            <field name="model">stock.picking</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="date"/>
+                    <field name="date_done"/>
+
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="global.stock_picking_globalfirma_search" >
+            <field name="name">Búsqueda Albaranes PDA</field>
+            <field name="model">stock.picking</field>
+            <field name="arch" type="xml">
+                <search string="Información obra">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="global.stock_picking_global_firma_form">
+            <field name="name">Firma Albarán PDA</field>
+            <field name="model">stock.picking</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet class="">
+
+                        <group name='firmas' string="">
+                            <field name="receptor" string="Nombre Receptor Mercancia" />
+                            <field name="firma_cliente" widget="signature"  />
+                        </group>
+                          <group string="Operaciones Correo">
+                              <field name="receptor_email" type="email"  string="Email distinto al de la ficha (Opcional)"/>
+                              <br/><br/>
+                              <button name="enviar_correo_albaran" class="btn-primary oe_highlight" type="object">Enviar correo</button>
+                          </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+            <record model="ir.actions.act_window" id="global.action_window_abrir_albaranes_pda">
+              <field name="name">Albaranes Window</field>
+              <field name="res_model">stock.picking</field>
+              <field name="view_mode">tree,form</field>
+                 <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('global.stock_picking_global_firma_tree')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('global.stock_picking_global_firma_form')})]"
+                />
+            </record>
+
+        <menuitem name="Albaranes PDA"
+        id="menu_albaranes_pda"
+        sequence="1"
+        web_icon="global,static/icons/pda.jpg"/>
+
+        <menuitem name="Acciones PDA" id="global.menu_1" parent="global.menu_albaranes_pda"/>
+
+        <menuitem name="List" id="global.menu_1_list" parent="global.menu_1"
+                      action="global.action_window_abrir_albaranes_pda"/>
+
         <!-- Top menu item -->
         <!--
             <menuitem name="global" id="global.menu_root"/>
