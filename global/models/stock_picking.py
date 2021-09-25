@@ -21,11 +21,11 @@ class StockPicking(models.Model):
         # studio_customization.report_deliveryslip__203dd924-9a30-4f65-9fa4-d4edd029af56
         #report_template_id = self.env.ref('studio_customization.report_deliveryslip__203dd924-9a30-4f65-9fa4-d4edd029af56').sudo().render_qweb_template(self.id)
 
-        report_template = self.env['ir.actions.report']._get_report_from_name('stock.report_deliveryslip_copy_2_copy_1')
-        print(report_template)
+        #report_template = self.env['ir.actions.report']._get_report_from_name('stock.report_deliveryslip_copy_2_copy_1')
+
+        report_template = self.env['ir.actions.report']._get_report_from_name('stock.report_deliveryslip_copy_3')
         report_template_data = report_template.sudo().render_qweb_pdf([int(self.id)])
 
-        print(report_template_data)
         data_record = base64.b64encode(report_template_data[0])
         ir_values = {
             'name': "Albaran",
@@ -45,8 +45,10 @@ class StockPicking(models.Model):
 
         email_values = {'email_to': email_to,
                         'email_from': self.env.user.email}
+
         email_template_id.send_mail(self.id, email_values=email_values, force_send=True)
         email_template_id.attachment_ids = [(3, data_id.id)]
+
         return True
 
     # sign_request_ids = fields.Many2many('sign.request', string='Firmas')

@@ -82,16 +82,16 @@
            <field name="model_id" ref="stock.model_stock_picking"/>
            <field name="email_from">${object.company_id.email |safe}</field>
            <field name="email_to" >${object.receptor_email or object.partner_id.email}</field>
-           <field name="subject">Ref ${object.name or 'n/a' }</field>
+           <field name="subject">Albarán # ${object.name or 'n/a' }</field>
            <field name="auto_delete" eval="True"/>
            <field name="lang">${object.partner_id.lang}</field>
            <field name="body_html"><![CDATA[
                 <p>Hola,</p>
                 <br/>
-                <p>El albarán número ${object.name} ha sido entregado. </p>
+                <p>El albarán número ${object.name} ha sido entregado.</p>
                 <p>Fecha y hora de entrega: ${format_datetime(object.date, tz=user.tz, lang_code=object.partner_id.lang)}.</p>
                 % if object.receptor:
-                    <p>El receptor de la mercancía ha sido: ${object.company_id.zip} ${object.company_id.city}</p>
+                    <p>El receptor de la mercancía ha sido: ${object.receptor}</p>
                 % endif
                 <br/>
                 <p>Se ha adjuntado el albarán correspondiente.</p>
