@@ -50,7 +50,7 @@
             <field name="name">Listado Albaranes PDA</field>
             <field name="model">stock.picking</field>
             <field name="arch" type="xml">
-                <tree default_order='create_date'>
+                <tree default_order='create_date desc'>
                     <field name="name"/>
                     <field name="location_id"/>
                     <field name="state"/>
@@ -75,19 +75,17 @@
             <field name="model">stock.picking</field>
             <field name="arch" type="xml">
                 <form>
-                    <sheet class="">
 
-                        <group name='firmas' string="">
-                            <field name="receptor" string="Nombre Receptor Mercancia" />
-                            <field name="firma_cliente" widget="signature"  />
-                        </group>
-                          <group string="Operaciones Correo">
-                              <field name="receptor_email" type="email"  string="Email distinto al de la ficha (Opcional)"/>
-                              <br/><br/>
-                              <button name="enviar_correo_albaran" class="btn-primary oe_highlight" type="object">Enviar correo</button>
-                          </group>
+                    <group name='firmas' string="">
+                        <field name="receptor" string="Nombre Receptor Mercancia" />
+                        <field name="firma_cliente" widget="signature"  />
+                    </group>
+                      <group string="Operaciones Correo">
+                          <field name="receptor_email" type="email"  string="Email distinto al de la ficha (Opcional)"/>
+                          <br/><br/>
+                          <button name="enviar_correo_albaran" class="btn-primary oe_highlight" type="object">Enviar correo</button>
+                      </group>
 
-                    </sheet>
                 </form>
             </field>
         </record>
