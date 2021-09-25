@@ -96,7 +96,9 @@
               <field name="name">Albaranes PDA</field>
               <field name="res_model">stock.picking</field>
               <field name="view_mode">tree,form</field>
-              <field name="domain">[('code', '=', 'outgoing')]</field>
+              <field name="domain">[
+                  ('picking_type_code', '=', 'outgoing')
+                  ]</field>
                  <field name="view_ids" eval="[(5, 0, 0),
                     (0, 0, {'view_mode': 'tree', 'view_id': ref('global.stock_picking_global_firma_tree')}),
                     (0, 0, {'view_mode': 'form', 'view_id': ref('global.stock_picking_global_firma_form')})]"
