@@ -92,7 +92,7 @@
 
 
             <record model="ir.actions.act_window" id="global.action_window_abrir_albaranes_pda">
-              <field name="name">Albaranes Window</field>
+              <field name="name">Albaranes PDA</field>
               <field name="res_model">stock.picking</field>
               <field name="view_mode">tree,form</field>
                  <field name="view_ids" eval="[(5, 0, 0),
