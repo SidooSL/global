@@ -50,13 +50,12 @@
             <field name="name">Listado Albaranes PDA</field>
             <field name="model">stock.picking</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree default_order='create_date'>
                     <field name="name"/>
+                    <field name="location_id"/>
                     <field name="state"/>
                     <field name="date"/>
                     <field name="date_done"/>
-
-                    <field name="location_id"/>
                 </tree>
             </field>
         </record>
