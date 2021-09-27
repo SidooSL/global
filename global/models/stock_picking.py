@@ -28,7 +28,7 @@ class StockPicking(models.Model):
 
         data_record = base64.b64encode(report_template_data[0])
         ir_values = {
-            'name': "Albaran",
+            'name': "Albaran.pdf",
             'type': 'binary',
             'datas': data_record,
             'store_fname': data_record,
