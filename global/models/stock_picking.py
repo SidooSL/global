@@ -13,6 +13,42 @@ class StockPicking(models.Model):
     receptor_email = fields.Char(string="Receptor Email")
     firma_cliente = fields.Binary(string="Firma cliente")
 
+
+    # Cuenta analitica en pedido - correo
+    # Direccion entrega - correo
+    # Correo cliente
+    # o
+    # Cuadro texto
+
+    def _obtener_email_destinatario(self):
+        print(self.receptor_email)
+        print(type(self.receptor_email))
+
+        if self.receptor_email and len(self.receptor_email) > 0:
+            return  self.receptor_email
+
+        if len(self.move_lines) >= 0:
+            move_line = self.move_lines[0]
+
+            if move_line.sale_line_id:
+                sale_line = move_line.sale_line_id
+                order_id = sale_line.order_id
+                if order_id:
+                    if order_id.analytic_account_id:
+                        analytic_account = order_id.analytic_account_id
+                        if analytic_account.correo_electronico is not None and len(analytic_account.correo_electronico) > 0:
+                            return analytic_account.correo_electronico
+
+        email_to = ""
+        if self.partner_id and self.partner_id.email:
+            email_to = self.partner_id.email
+
+            if not email_to or len(email_to) <= 0:
+                if self.partner_id.parent_id:
+                    email_to = self.partner_id.parent_id.email
+        return email_to
+
+
     def enviar_correo_albaran(self):
         # mail_template = self.env.ref('global.albaran_entragado_email')
         # mail_template.send_mail(self.id, force_send=True)
@@ -38,10 +74,7 @@ class StockPicking(models.Model):
         email_template_id = self.env.ref("global.albaran_entragado_email")
         email_template_id.attachment_ids = [(6, 0, [data_id.id])]
 
-        email_to = self.partner_id.email
-
-        if self.receptor_email:
-            email_to = self.receptor_email
+        email_to = self._obtener_email_destinatario()
 
         email_values = {'email_to': email_to,
                         'email_from': self.env.user.email}

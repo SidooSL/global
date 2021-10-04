@@ -21,7 +21,7 @@
 
     'application': True,
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website', 'website_sale', 'purchase', 'stock', 'account_intrastat'],
+    'depends': ['base', 'website', 'website_sale', 'purchase', 'stock', 'account_intrastat', 'account'],
 
     # always loaded
     'data': [
@@ -30,6 +30,7 @@
         'views/templates.xml',
         'views/product_template_views.xml',
         'views/res_partner_views.xml',
+        'views/analytic_account_views.xml',
         'views/stock_picking_views.xml',
         'email_templates/email_templates.xml'
     ],
