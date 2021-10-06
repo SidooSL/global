@@ -89,7 +89,6 @@
                 <p>Hola,</p>
                 <br/>
                 <p>El albarán número ${object.name} ha sido entregado.</p>
-                <p>Fecha y hora de entrega: ${format_datetime(object.date, tz=user.tz, lang_code=object.partner_id.lang)}.</p>
                 % if object.receptor:
                     <p>El receptor de la mercancía ha sido: ${object.receptor}</p>
                 % endif

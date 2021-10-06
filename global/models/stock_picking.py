@@ -90,7 +90,6 @@ class StockPicking(models.Model):
         }
 
 
-
     # sign_request_ids = fields.Many2many('sign.request', string='Firmas')
     # sign_request_count = fields.Integer(compute='_compute_sign_request_count')
     #
