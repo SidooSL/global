@@ -40,7 +40,7 @@ class StockPicking(models.Model):
                             return analytic_account.correo_electronico
 
         email_to = ""
-        if self.partner_id and self.partner_id.email:
+        if self.partner_id:
             email_to = self.partner_id.email
 
             if not email_to or len(email_to) <= 0:
@@ -55,8 +55,8 @@ class StockPicking(models.Model):
         # no confirmado stock.report_deliveryslip_copy_2_copy_1
         # confirmado: stock.report_deliveryslip_copy_2_copy_2
         # studio_customization.report_deliveryslip__203dd924-9a30-4f65-9fa4-d4edd029af56
-        #report_template_id = self.env.ref('studio_customization.report_deliveryslip__203dd924-9a30-4f65-9fa4-d4edd029af56').sudo().render_qweb_template(self.id)
 
+        #report_template_id = self.env.ref('studio_customization.report_deliveryslip__203dd924-9a30-4f65-9fa4-d4edd029af56').sudo().render_qweb_template(self.id)
         #report_template = self.env['ir.actions.report']._get_report_from_name('stock.report_deliveryslip_copy_2_copy_1')
 
         report_template = self.env['ir.actions.report']._get_report_from_name('stock.report_deliveryslip_copy_3')
