@@ -89,7 +89,7 @@ class StockPicking(models.Model):
 
         return {
             'name': 'Success',
-            'type': 'ir.action.window',
+            'type': 'ir.action.act_window',
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'sh.message.wizard',
