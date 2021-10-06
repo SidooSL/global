@@ -49,7 +49,6 @@ class StockPicking(models.Model):
                     email_to = self.partner_id.parent_id.email
         return email_to
 
-
     def enviar_correo_albaran(self):
         # mail_template = self.env.ref('global.albaran_entragado_email')
         # mail_template.send_mail(self.id, force_send=True)
@@ -85,7 +84,7 @@ class StockPicking(models.Model):
 
         view = self.env.ref('sh_message.sh_message_wizard')
         view_id = view and view.id or False
-        context = dict(self._context or {})
+        context = dict()
         context["message"] = '¡Se ha enviado el correo!'
 
         return {
@@ -99,9 +98,6 @@ class StockPicking(models.Model):
                 'view_id': view.id,
                 'target': 'new',
                 'context': context
-
-
-
             }
         }
 
