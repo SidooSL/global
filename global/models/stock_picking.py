@@ -3,7 +3,7 @@
 import base64
 
 from odoo import fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 from odoo import api, models, fields, _
 
 class StockPicking(models.Model):
@@ -27,7 +27,7 @@ class StockPicking(models.Model):
         if self.receptor_email and len(self.receptor_email) > 0:
             return  self.receptor_email
 
-        if len(self.move_lines) >= 0:
+        if len(self.move_lines) > 0:
             move_line = self.move_lines[0]
 
             if move_line.sale_line_id:
@@ -38,7 +38,8 @@ class StockPicking(models.Model):
                         analytic_account = order_id.analytic_account_id
                         if analytic_account.correo_electronico and len(analytic_account.correo_electronico) > 0:
                             return analytic_account.correo_electronico
-
+        else:
+            raise UserError("¡El Albarán tiene que tener al menos una línea!")
         email_to = ""
         if self.partner_id:
             email_to = self.partner_id.email
@@ -82,10 +83,25 @@ class StockPicking(models.Model):
         email_template_id.send_mail(self.id, email_values=email_values, force_send=True)
         email_template_id.attachment_ids = [(3, data_id.id)]
 
+        view = self.env.ref('sh_message.sh_message_wizard')
+        view_id = view and view.id or False
+        context = dict(self._context or {})
+        context["message"] = '¡Se ha enviado el correo!'
+
         return {
-            'warning': {
-                'title': 'Email enviado',
-                'message': 'El correo se ha enviado al destinatario: %s' % (email_to,)
+            {
+                'name': 'Success',
+                'type': 'ir.action.window',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_model': 'sh.message.wizard',
+                'views': [(view.id, 'form')],
+                'view_id': view.id,
+                'target': 'new',
+                'context': context
+
+
+
             }
         }
 
