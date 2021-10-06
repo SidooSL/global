@@ -84,21 +84,20 @@ class StockPicking(models.Model):
 
         view = self.env.ref('sh_message.sh_message_wizard')
         view_id = view and view.id or False
-        context = dict()
+        context = dict(self._context or {})
         context["message"] = '¡Se ha enviado el correo!'
 
         return {
-            {
-                'name': 'Success',
-                'type': 'ir.action.window',
-                'view_type': 'form',
-                'view_mode': 'form',
-                'res_model': 'sh.message.wizard',
-                'views': [(view.id, 'form')],
-                'view_id': view.id,
-                'target': 'new',
-                'context': context
-            }
+            'name': 'Success',
+            'type': 'ir.action.window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'sh.message.wizard',
+            'views': [(view.id, 'form')],
+            'view_id': view.id,
+            'target': 'new',
+            'context': context
+
         }
 
 
