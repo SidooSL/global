@@ -36,7 +36,7 @@ class StockPicking(models.Model):
                 if order_id:
                     if order_id.analytic_account_id:
                         analytic_account = order_id.analytic_account_id
-                        if analytic_account.correo_electronico is not None and len(analytic_account.correo_electronico) > 0:
+                        if analytic_account.correo_electronico and len(analytic_account.correo_electronico) > 0:
                             return analytic_account.correo_electronico
 
         email_to = ""
