@@ -97,7 +97,6 @@ class StockPicking(models.Model):
             'view_id': view.id,
             'target': 'new',
             'context': context
-
         }
 
 
