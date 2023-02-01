@@ -1,0 +1,6 @@
+pycountry
+cachetools
+pyyaml
+unidecode
+xmlsig
+# pyOpenSSL
