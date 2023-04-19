@@ -17,7 +17,7 @@ class AccountInvoiceSend(models.TransientModel):
             active_ids = self.env.context.get('active_ids', self.res_id)
             active_records = self.env[self.model].browse(active_ids)
             for record in active_records:
-                self_record = self.with_context(active_ids=record.ids, lang=record.partner_id.lang)
+                self_record = self.with_context(active_ids=record.ids, active_id=record.id, lang=record.partner_id.lang)
                 self_record.composition_mode = 'comment'
                 self_record.onchange_template_id()
                 self_record.partner_ids = record.partner_id
