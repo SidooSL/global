@@ -19,6 +19,7 @@ class AccountInvoiceSend(models.TransientModel):
             for record in active_records:
                 self_record = self.with_context(active_ids=record.ids, lang=record.partner_id.lang)
                 self_record.onchange_template_id()
+                self_record.partner_ids = record.partner_id
                 self_record._send_email()
         else:
             self._send_email()
