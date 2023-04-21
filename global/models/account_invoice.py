@@ -9,6 +9,15 @@ from odoo.exceptions import UserError
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
+    @api.onchange("purchase_vendor_bill_id", "purchase_id")
+    def _onchange_purchase_auto_complete(self):
+        """Remove lines with qty=0 if option selected making invoices."""
+        res = super()._onchange_purchase_auto_complete()
+        self.invoice_line_ids -= self.invoice_line_ids.filtered(
+            lambda x: x.quantity == 0.0
+        )
+        return res
+
     @api.depends("sdd_paying_mandate_id")
     def _compute_ultimos_digitos_iban(self):
         for record in self:
