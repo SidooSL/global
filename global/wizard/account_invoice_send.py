@@ -38,7 +38,7 @@ class AccountInvoiceSend(models.TransientModel):
                     default_composition_mode='comment',
                     mark_invoice_as_sent=True,
                     custom_layout="mail.mail_notification_paynow",
-                    model_description=self.with_context(lang=lang).type_name,
+                    # model_description=self.with_context(lang=lang).type_name,
                     force_email=True
                 )
                 new = self.env['account.invoice.send'].with_context(ctx).create({
