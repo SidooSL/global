@@ -1,0 +1,67 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="bi_connector_formview">
+      <field name="name">BI Connector</field>
+      <field name="model">bi.connector</field>
+      <field name="arch" type="xml">
+        <form>  
+          <sheet>
+            <group>
+              <group>
+                <field name="db_host" required='True'/>
+                <field name="db_user_name" required='True' />
+                <field name="db_password" required='True' password="True"/>
+                <field name="db_name" invisible="True" readonly='True'/>
+                <!-- <field name="db_port" required='True'/>
+                <field name="db_name_for_backup" required='True'/> -->
+              </group>
+              <group>
+                <field name="db_port" required='True'/>
+                <field name="db_name_for_backup" required='True'/>
+                <!-- <field name="logs" readonly='True' /> -->
+              </group>
+            </group> 
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="bi_connector_treeview">
+      <field name="name">BI Connector</field>
+      <field name="model">bi.connector</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="db_host" required='True'/>
+          <field name="db_user_name" required='True'/>
+          <field name="db_name_for_backup" required='True'/>
+          <!-- <field name="logs"/> -->
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="bi_connector.action_window">
+      <field name="name">bi_connector window</field>
+      <field name="res_model">bi.connector</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="bi_connector.action_server">
+      <field name="name">BI Connector server</field>
+      <field name="model_id" ref="model_bi_connector"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="BI Connector" id="bi_connector.menu_root" action="bi_connector.action_window"/>
+
+  </data>
+</odoo>
