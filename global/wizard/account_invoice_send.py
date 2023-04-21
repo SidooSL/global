@@ -30,13 +30,15 @@ class AccountInvoiceSend(models.TransientModel):
                     active_ids=[record.id],
                     active_id=record.id,
                     active_model='account.move',
-                    force_email=True
+                    force_email=True,
+                    lang=record.partner_id.lang,
                 )
                 self.with_context(ctx).write({
                     'composition_mode': 'comment',
                     'res_id': record.id,
                     'invoice_ids': [(6, 0, [record.id])],
-                    })
+                    })                
+                self.onchange_template_id()
                 self.composer_id.send_mail()
                 if self.env.context.get('mark_invoice_as_sent'):
                     #Salesman send posted invoice, without the right to write
