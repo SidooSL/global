@@ -44,7 +44,7 @@ class AccountInvoiceSend(models.TransientModel):
                 new = self.env['account.invoice.send'].with_context(ctx).create({
                     'invoice_ids': [(6, 0, [record.id])],
                     'is_email': self.is_email,
-                    'is_print': self.is_print,
+                    'is_print': False,
                 })
                 new._send_email()
         else:
