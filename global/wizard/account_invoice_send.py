@@ -22,14 +22,14 @@ class AccountInvoiceSend(models.TransientModel):
                     active_ids=record.ids,
                     active_id=record.id,
                     lang=lang,
+                    default_res_id=record.id,
+                    default_res_model='account.move',
                     mark_invoice_as_sent=True,
                     custom_layout="mail.mail_notification_paynow",
                     force_email=True)
                 self_record.write({
                     'composition_mode': 'comment',
                     'template_id': self.template_id.id,
-                    'res_id': record.id,
-                    'res_model': 'account.move',
                     })
                 self_record.onchange_template_id()
                 self_record.partner_ids = record.partner_id
