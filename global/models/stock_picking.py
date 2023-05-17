@@ -12,8 +12,9 @@ class StockPicking(models.Model):
     receptor = fields.Char(string="Receptor Mercancía")
     receptor_email = fields.Char(string="Receptor Email")
     firma_cliente = fields.Binary(string="Firma cliente")
-
-
+    employee_name = fields.Many2one('hr.employee', string='Empleado', required=True)
+    numero_bultos = fields.Char(string="Numero de Bultos", required=True)
+    carrier_id = fields.Many2one(required=True)
     # Cuenta analitica en pedido - correo
     # Direccion entrega - correo
     # Correo cliente

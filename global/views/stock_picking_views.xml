@@ -9,7 +9,6 @@
                     <field name="correo_electronico"/>
                 </xpath>-->
 
-
                 <xpath expr="//notebook" position="inside">
                     <page name="firma" string="Firma recepción">
                         <group name='firmas' string="">
@@ -20,4 +19,16 @@
                 </xpath>
         </field>
     </record>
+    <record id="stock_picking_view_form_info_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form.info</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='carrier_data']/field[@name='carrier_id']" position="after">
+                    <field name="employee_name"/>
+                    <field name="numero_bultos"/>
+                </xpath>
+            </field>
+    </record>
+
 </odoo>
