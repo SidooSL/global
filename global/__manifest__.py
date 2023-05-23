@@ -21,7 +21,7 @@
 
     'application': True,
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website', 'website_sale', 'purchase', 'stock', 'account_intrastat', 'account', 'sh_message', ],
+    'depends': ['base', 'website', 'website_sale', 'purchase', 'stock', 'account_intrastat', 'account', 'sh_message', 'sale'],
 
     # always loaded
     'data': [
