@@ -33,6 +33,57 @@
                 <link rel="stylesheet"  type="text/css"  href="/global/static/style/theme.css"/>
             </xpath>
         </template>
+        <!-- albaarn con barras -->
+        <template id="custom_report_qweb_delivery_with" inherit_id="studio_customization.report_delivery_docu_65c40f95-f312-4758-a936-347b40f3a5d8">
+            <xpath expr="//div[@class='page']" position="after">
+                <!-- Agrega aquí tu contenido adicional -->
+                <span>Numero de Bultos:&#xA0;<t t-esc="o.numero_bultos"/></span><br/>
+                <t t-if='o.carrier_tracking_ref'>
+                  <span>Seguimiento:&#xA0;<t t-esc="o.carrier_tracking_ref"/></span>
+                </t> 
+            </xpath>
+        </template>
+
+        <template id="custom_report_qweb_inherit_delivery_note_only_confirmed" inherit_id="studio_customization.report_delivery_docu_dbaa2f3c-1d58-4ddf-908e-af09e51fcf51">
+            <xpath expr="//div[@class='page']" position="after">
+                <span>Numero de Bultos:&#xA0;<t t-esc="o.numero_bultos"/></span><br/>
+                <t t-if='o.carrier_tracking_ref'>
+                  <span>Seguimiento:&#xA0;<t t-esc="o.carrier_tracking_ref"/></span>
+                </t> 
+            </xpath>
+        </template>
+        <template id="custom_report_qweb_inherit_delivery_note_only_not_confirmed" inherit_id="studio_customization.report_delivery_docu_dd6f8e72-2911-4d1a-a2ff-56d6b40e0d27">
+            <xpath expr="//div[@class='page']" position="after">
+                <span>Numero de Bultos:&#xA0;<t t-esc="o.numero_bultos"/></span><br/>
+                <t t-if='o.carrier_tracking_ref'>
+                  <span>Seguimiento:&#xA0;<t t-esc="o.carrier_tracking_ref"/></span>
+                </t> 
+            </xpath>
+        </template>
+        <template id="custom_report_qweb_inherit_delivery_parada_sabic" inherit_id="studio_customization.report_delivery_docu_fe52377c-7e45-4879-835c-02bdc7c33e50">
+            <xpath expr="//div[@class='page']" position="after">
+                <span>Numero de Bultos:&#xA0;<t t-esc="o.numero_bultos"/></span><br/>
+                <t t-if='o.carrier_tracking_ref'>
+                  <span>Seguimiento:&#xA0;<t t-esc="o.carrier_tracking_ref"/></span>
+                </t> 
+            </xpath>
+        </template>
+        <template id="custom_report_qweb_inherit_do_not_touch" inherit_id="studio_customization.report_delivery_docu_7f121ec6-ceb2-470b-b0af-3b71c9302e69">
+            <xpath expr="//div[@class='page']" position="after">
+                <span>Numero de Bultos:&#xA0;<t t-esc="o.numero_bultos"/></span><br/>
+                <t t-if='o.carrier_tracking_ref'>
+                  <span>Seguimiento:&#xA0;<t t-esc="o.carrier_tracking_ref"/></span>
+                </t> 
+            </xpath>
+        </template>
+        <template id="custom_report_qweb_inherit_do_not_touch2" inherit_id="studio_customization.report_delivery_docu_4ed9a0d5-daa3-4970-a287-24de7c6f187b">
+            <xpath expr="//div[@class='page']" position="after">
+                <span>Numero de Bultos:&#xA0;<t t-esc="o.numero_bultos"/></span><br/>
+                <t t-if='o.carrier_tracking_ref'>
+                  <span>Seguimiento:&#xA0;<t t-esc="o.carrier_tracking_ref"/></span>
+                </t> 
+            </xpath>
+        </template>
 <!--        -->
 <!--        <template id="global_estilos" name="Estilos de Odoo Global" inherit_id="web.assets_frontend">-->
 <!--           <xpath expr="." position="inside">-->
