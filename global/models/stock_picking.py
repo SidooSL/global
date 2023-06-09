@@ -12,15 +12,29 @@ class StockPicking(models.Model):
     receptor = fields.Char(string="Receptor Mercancía")
     receptor_email = fields.Char(string="Receptor Email")
     firma_cliente = fields.Binary(string="Firma cliente")
-    employee_name = fields.Many2one('hr.employee', string='Empleado', required=True)
-    numero_bultos = fields.Char(string="Numero de Bultos", required=True)
-    carrier_id = fields.Many2one(required=True)
+    employee_name = fields.Many2one('hr.employee', string='Empleado')
+    numero_bultos = fields.Char(string="Numero de Bultos")
     # Cuenta analitica en pedido - correo
     # Direccion entrega - correo
     # Correo cliente
     # o
     # Cuadro texto
 
+    def button_validate(self):
+        if self.picking_type_code == 'outgoing':
+            msg_error = []
+            if not self.numero_bultos:
+                msg_error.append('- El campo numero de bultos es obligatorio')
+            if not self.employee_name:
+                msg_error.append('- El campo empleado es obligatorio')
+            if not self.carrier_id:
+                msg_error.append('- El campo trasportista es obligatorio')
+            if msg_error:
+                msg = "INFO ADICIONAL:\n"
+                msg += '\n'.join(msg_error)
+                raise UserError(msg)
+        return super().button_validate()
+    
     def _obtener_email_destinatario(self):
         print(self.receptor_email)
         print(type(self.receptor_email))
