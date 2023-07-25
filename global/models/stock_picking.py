@@ -12,8 +12,11 @@ class StockPicking(models.Model):
     receptor = fields.Char(string="Receptor Mercancía")
     receptor_email = fields.Char(string="Receptor Email")
     firma_cliente = fields.Binary(string="Firma cliente")
-    employee_name = fields.Many2one('hr.employee', string='Empleado')
-    numero_bultos = fields.Char(string="Numero de Bultos")
+    # TODO: estos tres campos tienen que ser obligotarios, pero sólo en albaranes de entrega
+    # y no obligatorios al crear, si no hacer sólo la comprobación al validar albarán.
+    employee_name = fields.Many2one('hr.employee', string='Empleado', required=False)
+    numero_bultos = fields.Char(string="Numero de Bultos", required=False)
+    carrier_id = fields.Many2one(required=False)
     # Cuenta analitica en pedido - correo
     # Direccion entrega - correo
     # Correo cliente
