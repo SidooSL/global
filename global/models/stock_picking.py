@@ -23,6 +23,21 @@ class StockPicking(models.Model):
     # o
     # Cuadro texto
 
+    def button_validate(self):
+        if self.picking_type_code == 'outgoing':
+            msg_error = []
+            if not self.numero_bultos:
+                msg_error.append('- El campo numero de bultos es obligatorio')
+            if not self.employee_name:
+                msg_error.append('- El campo empleado es obligatorio')
+            if not self.carrier_id:
+                msg_error.append('- El campo trasportista es obligatorio')
+            if msg_error:
+                msg = "INFO ADICIONAL:\n"
+                msg += '\n'.join(msg_error)
+                raise UserError(msg)
+        return super().button_validate()
+    
     def _obtener_email_destinatario(self):
         print(self.receptor_email)
         print(type(self.receptor_email))
