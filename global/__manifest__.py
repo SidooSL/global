@@ -32,6 +32,7 @@
         'views/res_partner_views.xml',
         'views/analytic_account_views.xml',
         'views/stock_picking_views.xml',
+        'views/stock_warehouse_view.xml',
         'email_templates/email_templates.xml'
     ],
     # only loaded in demonstration mode

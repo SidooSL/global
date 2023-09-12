@@ -9,3 +9,4 @@ from . import stock_picking
 from . import account_intrastat_report
 from . import account_invoice
 from . import account_analytic_account
+from . import stock_warehouse
