@@ -24,7 +24,7 @@ class ResConfigSettings(models.TransientModel):
                     
         self.env['ir.config_parameter'].sudo().set_param('sale_stock_alert.send_alert', self.send_alert)
         self.env['ir.config_parameter'].sudo().set_param('sale_stock_alert.alert_email_template_id', int(template_id))
-        self.env['ir.config_parameter'].set_param('sale_stock_alert.user_ids', self.user_ids.ids)
+        self.env['ir.config_parameter'].sudo().set_param('sale_stock_alert.user_ids', self.user_ids.ids)
         return res
 
 # ==================================
@@ -33,15 +33,15 @@ class ResConfigSettings(models.TransientModel):
     def get_values(self):
         res = super(ResConfigSettings, self).get_values()
         
-        ids_user = self.env['ir.config_parameter'].get_param('sale_stock_alert.user_ids')
+        ids_user = self.env['ir.config_parameter'].sudo().get_param('sale_stock_alert.user_ids')
                 
         lines = False
         if ids_user:
             lines = [(6, 0, literal_eval(ids_user))]
         
         res.update(
-            send_alert = self.env['ir.config_parameter'].get_param('sale_stock_alert.send_alert'),
-            alert_email_template_id = int(self.env['ir.config_parameter'].get_param('sale_stock_alert.alert_email_template_id')),
+            send_alert = self.env['ir.config_parameter'].sudo().get_param('sale_stock_alert.send_alert'),
+            alert_email_template_id = int(self.env['ir.config_parameter'].sudo().get_param('sale_stock_alert.alert_email_template_id')),
             user_ids = lines, #[(6, 0, lines)],
         )
         return res

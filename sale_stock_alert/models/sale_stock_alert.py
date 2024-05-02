@@ -42,8 +42,8 @@ class SaleStockAlert(models.Model):
 # =====================================================================    
     def send_email_template(self):
         #Checa si la bandera para el envío de alertas está encendido en los Ajustes del módulo
-        send_alert = self.env['ir.config_parameter'].get_param('sale_stock_alert.send_alert')
-        alert_email_template_id = int(self.env['ir.config_parameter'].get_param('sale_stock_alert.alert_email_template_id'))
+        send_alert = self.env['ir.config_parameter'].sudo().get_param('sale_stock_alert.send_alert')
+        alert_email_template_id = int(self.env['ir.config_parameter'].sudo().get_param('sale_stock_alert.alert_email_template_id'))
         
         mail_template = self.env['mail.template'].browse(alert_email_template_id)
         
@@ -61,7 +61,7 @@ class SaleStockAlert(models.Model):
 #   GET_EMAIL_TO(SELF)
 # =====================================================================        
     def get_email_to(self):
-        ids_user = self.env['ir.config_parameter'].get_param('sale_stock_alert.user_ids')
+        ids_user = self.env['ir.config_parameter'].sudo().get_param('sale_stock_alert.user_ids')
         lines = False
         if ids_user:
             lines = literal_eval(ids_user)
